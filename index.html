@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="./index.js"></script>
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      
+      <!--NAVBAR-->
+      <!--<nav class="navbar"> 
+        <div class="container">
+          <a class="navbar_brand"></a>
+
+        </div>
+      </nav>-->
+
+      <!--SIGNUP FORM-->
+      <!--- Sign in info starts here -->
+
+    <div class="user-type">
+      <button id="client-btn">Client</button>
+      <button id="barber-btn">Barber</button>
+      <!-- if barber is selected, change to json string titled "barber" to true-->
+    </div>
+
+    <div id="message"></div>
+
+      <form id="sign-up" class="signup">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Password_confirmation">
+            
+            <input type="text" name="credentials[phone_number]" placeholder="Phone_number">
+
+            <input id="user-barber" type="text" name="credentials[barber]" style="display: block;" value="false">
+            <!-- be sure to change 'display: none;' of the above element-->
+            <input type="submit" value="Sign Up!">
+
+          </fieldset>
+        </form>
+  
+        <!--<button id="login">Sign In</button>-->
+  
+        <form id="sign-in" class="border">
+          <fieldset>
+            <legend>Sign in!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Sign in!">
+          </fieldset>
+        </form>
+  
+        <form id="change-password" class="border">
+          <fieldset>
+            <legend>Change Password!</legend>
+            <input type="password" name="passwords[old]" placeholder="old password">
+            <input type="password" name="passwords[new]" placeholder="new password">
+  
+            <input type="submit" value="Change Password">
+          </fieldset>
+        </form>
+  
+        <form id="sign-out" class="border">
+          <fieldset>
+            <legend>Sign Out</legend>
+            <input type="submit" value="Sign Out">
+          </fieldset>
+        </form>
+  
+      <!--BARBER INFO FORM-->
+
+      <form id="create-barber" class="border">
+        <fieldset>
+          <legend>Barber Information </legend>
+            <input type="application/json" name="barber[name]" placeholder="Your name">
+            <input type="application/json" name="barber[chair]" placeholder="Chair Number">
+
+
+            <input type="submit" value="Done">
+        </fieldset>
+
+      </form>
+
+
+      <!-- <form id="barber-dashboard" class="border"> -->
+        <fieldset>
+          <legend>Barber Dashboard</legend>
+
+          <button type="submit" id="get-barber">My Information</button>
+
+
+          <button type="submit" id="all-barbers">Appointments</button>
+
+        </fieldset>
+
+        <div id="barber-info"> </div>
+
+
+      <!--</form>-->
+        <legend>Client Dashboard</legend>
+
+        <button type="submit" id="get-barber">My Information</button>
+        <button type="submit" id="get-barber">Create Appointment</button>
+        <!-- 
+          Right Here I need a list of all barbers to populate. 
+          Each name must be affiliated with a barber id.
+          Client must select a barber and enter the style of haricut, 
+          a date and time. When all of this is populated feel free 
+
+          
+        -->
+
+
+        <button type="submit" id="get-barber">Appointments</button>
+
+        <form id="create-appt">
+        <fieldset>
+           <legend>Create Appointment</legend>
+            <input type="text" name="appointment[haircut]" placeholder="Haircut style">
+            <input type="text" name="appointment[date]" placeholder="Date">
+           <input type="integer" name="appointment[time]" placeholder="Time">
+            <input id="pick-barber" type="integer" name="appointment[barber_id]" style="display: block;" value="false">
+            <input id="userID" type="integer" name="appointment[user_id]">
+
+            <input type="submit" value="Book Appointment">
+        </fieldset>
+      </form>
+
+
+        <!--
+          Add function that appends all barbers to the drop down list below. 
+          Add functionality that appends the barberid affiliated with the name to the form.   
+        -->
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown</button>
+          <div class="dropdown-content">
+            <!--barber list will be here
+            If barber selected, there barber id will equal the barbers id
+            -->
+          </div>
+        </div>
+
+       
+        <!--Automatically append the user id to the user id field-->
+        
+
+
+
+
+        
+
+
+
+      
+    </body>
+    <!--<script src="index.js"></script>-->
+    </html>
