@@ -64,6 +64,8 @@ const signOutFailure = function (error) {
 const createBarberSuccess = function (data) {
   console.log("successfully created a new barber")
   store.barber
+  $('#create-barber').css('display', 'none')
+
 }
 
 const createBarberFail = function (error) {

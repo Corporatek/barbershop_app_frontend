@@ -25,7 +25,9 @@
       <!--SIGNUP FORM-->
       <!--- Sign in info starts here -->
 
-    <div class="user-type">
+    <img id="barber_bar" src="./assets/styles/barbershop_pole.gif">
+
+    <div class="user-type" id="user-type">
       <button id="client-btn">Client</button>
       <button id="barber-btn">Barber</button>
       <!-- if barber is selected, change to json string titled "barber" to true-->
@@ -138,8 +140,8 @@
             <input type="text" name="appointment[haircut]" placeholder="Haircut style">
             <input type="text" name="appointment[date]" placeholder="Date">
            <input type="integer" name="appointment[time]" placeholder="Time">
-            <input id="pick-barber" type="integer" name="appointment[barber_id]" style="display: block;" value="">
-            <input id="userID" type="integer" name="appointment[user_id]">
+            <input style="display: none;" id="pick-barber" type="integer" name="appointment[barber_id]" style="display: block;" value="">
+            <input style="display: none;"id="userID" type="integer" name="appointment[user_id]">
 
             <input type="submit" value="Book Appointment">
         </fieldset>
@@ -210,7 +212,18 @@
      </div>
 
         
+<script>
+var myVar;
 
+function myFunction() {
+    myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("barber_bar").style.display = "none";
+  document.getElementById("user-type").style.display = "block";
+}
+  </script>
 
 
       

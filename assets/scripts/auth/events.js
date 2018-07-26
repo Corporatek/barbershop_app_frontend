@@ -137,6 +137,8 @@ const addHandlers = () => {
     $('#view-appt').on('click', viewAppt)
     $('#edit-appt').on('click', editAppt)    
     $('#client-view-appt').on('click', clientViewAppt)
+    //$('#barber_bar').css('display', 'block', 3000)
+
 
 }
 

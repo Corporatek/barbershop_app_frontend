@@ -11,6 +11,7 @@ const api = require('./auth/api.js')
 
 $(document).ready(function() {
   // your JS code goes here
+  
 
 // var barberType = $('#user-barber')
 
@@ -33,6 +34,7 @@ $('#barber-btn').on('click', function(){
   $('#sign-in').on('submit', function(){
     $('#sign-up').css('display', 'none')
     $('#sign-in').css('display', 'none')
+    $('#create-barber').css('display', 'block')
     $('#barber-db').css('display', 'block')
     $('#view-appt').css('display', 'block')
     $('#edit').css('display', 'block')
