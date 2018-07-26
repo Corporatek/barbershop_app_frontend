@@ -88,7 +88,7 @@ const getBarberFail = function (error) {
 }
 
 const getAllBarbersSuccess = function (data) {
-  console.log("successfully showing all barbers: " + JSON.stringify(data.barbers[13]))
+  //console.log("successfully showing all barbers: " + JSON.stringify(data.barbers[13]))
   
   const person = data.barbers
   const list = $('.dropdown-content')
@@ -102,7 +102,7 @@ const listBarbers = function(data) {
     list.append('<button class="select-barber" id="'+ id + '">' + JSON.stringify(name) + '</button>')
     
     
-    console.log("i called")
+   // console.log("i called")
 
   let barberPicked = $('#pick-barber')
   let userID = $('#userID')
@@ -134,11 +134,97 @@ const appointmentFailure = function (error) {
   console.log("failed to create a new appointment")
 }
 
-// $('#login').on('click', function() {
-//     $('#sign-up').css('display', 'block')
-//     $('#sign-in').css('display', 'block')
-//     $('#login').css('display', 'none')
-//   })
+const viewApptSuccess = function (data) {
+  console.log("successfully showing all your appts: " + JSON.stringify(data.appointments))
+  
+  const appt = data.appointments
+  const list = $('.appt-list')
+
+  //const barber_id = appt.barber_id
+  const myBarber = store.user.barber.id
+  // var  = true
+
+const listBarbers = function(data) {
+  // if (barber_id == myBarber) {
+  
+    for (let i = 0; i < data.length; i++) {
+     // JSON.stringify(data[i])
+    let name = data[i].name
+    let date = data[i].date
+    let time = data[i].time
+    let style = data[i].haircut
+    let barber_id = data[i].barber_id
+    let appt_id = data[i].id
+    
+    if (barber_id == myBarber) {
+    list.append('<li class="barber-appts" value='+appt_id+'>' + JSON.stringify(name) + ' ' +
+    JSON.stringify(style) + ' '
+    + JSON.stringify(date) + ' '
+    + JSON.stringify(time) + ' ' +
+    '</li>')}
+
+    }
+    console.log("i worked")
+
+  
+}
+  listBarbers(appt)
+}
+const viewclientApptSuccess = function (data) {
+  console.log("successfully showing all your appts: " + JSON.stringify(data.appointments))
+  
+  const appt = data.appointments
+  const list = $('.appt-list')
+
+  //const barber_id = appt.barber_id
+  const myID = data.id
+  // var  = true
+  console.log(myID + "testing ID")
+
+const listBarbers = function(data) {
+  // if (barber_id == myBarber) {
+  
+    for (let i = 0; i < data.length; i++) {
+     // JSON.stringify(data[i])
+    let name = data[i].name
+    let date = data[i].date
+    let time = data[i].time
+    let style = data[i].haircut
+    let user_id = data[i].user_id
+    let appt_id = data[i].id
+    
+    if (user_id == myID) {
+    list.append('<li class="barber-appts" value='+appt_id+'>' +
+    JSON.stringify(style) + ' '
+    + JSON.stringify(date) + ' '
+    + JSON.stringify(time) + ' ' +
+    '</li>')}
+
+    }
+    console.log("i worked")
+
+  
+}
+  listBarbers(appt)
+}
+
+
+
+
+const viewApptFail = function (error) {
+  console.log("failed to view appointment")
+}
+
+const editApptSucces = function (data) {
+  console.log("successfully edited appointment")
+  store.appointment
+  }
+
+const editApptFail = function (error) {
+  console.log("failed to edit appointment")
+}
+
+
 
 module.exports = {
     signUpSuccess,
@@ -156,5 +242,10 @@ module.exports = {
     getAllBarbersFail,
     getAllBarbersSuccess,
     appointmentCreated,
-    appointmentFailure
+    appointmentFailure,
+    viewApptSuccess,
+    viewApptFail,
+    editApptSucces,
+    editApptFail,
+    viewclientApptSuccess
   }

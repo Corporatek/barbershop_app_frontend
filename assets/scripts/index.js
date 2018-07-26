@@ -27,6 +27,51 @@ $('#barber-btn').on('click', function() {
 
 
 
+$('#barber-btn').on('click', function(){
+  $('#sign-up').css('display', 'block')
+  $('#sign-in').css('display', 'block')
+  $('#sign-in').on('submit', function(){
+    $('#sign-up').css('display', 'none')
+    $('#sign-in').css('display', 'none')
+    $('#barber-db').css('display', 'block')
+    $('#view-appt').css('display', 'block')
+    $('#edit').css('display', 'block')
+    $('#edit').on('click', function(){
+      $('#edit-appt').css('display', 'block')
+    })
+  })
+})
+
+$('#client-btn').on('click', function(){
+  $('#sign-up-client').css('display', 'block')
+  $('#sign-in').css('display', 'block')
+  $('#sign-in').on('submit', function(){
+    $('#sign-up').css('display', 'none')
+    $('#sign-in').css('display', 'none')
+    $('#user-db').css('display', 'block')
+    $('#view-appt').css('display', 'block')
+    $('#client-edit').css('display', 'block')
+    $('create-appt').css('display', 'block')
+    $('#client-edit').on('click', function(){
+      $('#client-edit-appt').css('display', 'block')
+    })
+  })
+})
+
+// $('#sign-in').on('submit', function(){
+//   $('#sign-up').css('display', 'none')
+//   $('#sign-in').css('display', 'none')
+//   $('#barber-db').css('display', 'block')
+//   $('#view-appt').css('display', 'block')
+// })
+
+
+const appt = document.getElementsByClassName('barber-appt')
+
+console.log(appt.val)
+
+
+
 console.log("sfas")
 })
 

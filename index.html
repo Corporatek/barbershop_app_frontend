@@ -8,6 +8,7 @@
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
       <!-- Do not add `script` tags-->
+      <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
       <script src="./index.js"></script>
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -15,12 +16,11 @@
     <body>
       
       <!--NAVBAR-->
-      <!--<nav class="navbar"> 
-        <div class="container">
-          <a class="navbar_brand"></a>
-
-        </div>
-      </nav>-->
+      <ul>
+          <li><a href="default.asp">Home</a></li>
+          <li><a id="change-pwd">Change Password</a></li>
+          <li><a id="sign-out-box">Sign Out</a></li>
+        </ul>
 
       <!--SIGNUP FORM-->
       <!--- Sign in info starts here -->
@@ -33,7 +33,7 @@
 
     <div id="message"></div>
 
-      <form id="sign-up" class="signup">
+      <form id="sign-up" class="signup" style="display: none;">
           <fieldset>
             <legend>Sign up!</legend>
             <input type="text" name="credentials[email]" placeholder="Email">
@@ -48,10 +48,24 @@
 
           </fieldset>
         </form>
+
+        <form id="sign-up-client" class="signup" style="display: none;">
+            <fieldset>
+              <legend>Sign up!</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Password_confirmation">
+              
+              <input type="text" name="credentials[phone_number]" placeholder="Phone_number">
+                <!-- be sure to change 'display: none;' of the above element-->
+              <input type="submit" value="Sign Up!">
+  
+            </fieldset>
+          </form>
   
         <!--<button id="login">Sign In</button>-->
   
-        <form id="sign-in" class="border">
+        <form id="sign-in" class="border" style="display: none;">
           <fieldset>
             <legend>Sign in!</legend>
             <input type="text" name="credentials[email]" placeholder="Email">
@@ -60,7 +74,7 @@
           </fieldset>
         </form>
   
-        <form id="change-password" class="border">
+        <form id="change-password" class="border" style="display: none;">
           <fieldset>
             <legend>Change Password!</legend>
             <input type="password" name="passwords[old]" placeholder="old password">
@@ -70,7 +84,7 @@
           </fieldset>
         </form>
   
-        <form id="sign-out" class="border">
+        <form id="sign-out" class="border" style="display: none;">
           <fieldset>
             <legend>Sign Out</legend>
             <input type="submit" value="Sign Out">
@@ -79,7 +93,7 @@
   
       <!--BARBER INFO FORM-->
 
-      <form id="create-barber" class="border">
+      <form id="create-barber" class="border" style="display: none;">
         <fieldset>
           <legend>Barber Information </legend>
             <input type="application/json" name="barber[name]" placeholder="Your name">
@@ -91,26 +105,21 @@
 
       </form>
 
-
+      <div id="barber-db" style="display: none;">
       <!-- <form id="barber-dashboard" class="border"> -->
         <fieldset>
           <legend>Barber Dashboard</legend>
 
           <button type="submit" id="get-barber">My Information</button>
 
-
-          <button type="submit" id="all-barbers">Appointments</button>
-
         </fieldset>
+      </div>
 
         <div id="barber-info"> </div>
 
 
       <!--</form>-->
-        <legend>Client Dashboard</legend>
-
-        <button type="submit" id="get-barber">My Information</button>
-        <button type="submit" id="get-barber">Create Appointment</button>
+      <div id="user-db" style="display: none;">
         <!-- 
           Right Here I need a list of all barbers to populate. 
           Each name must be affiliated with a barber id.
@@ -129,33 +138,76 @@
             <input type="text" name="appointment[haircut]" placeholder="Haircut style">
             <input type="text" name="appointment[date]" placeholder="Date">
            <input type="integer" name="appointment[time]" placeholder="Time">
-            <input id="pick-barber" type="integer" name="appointment[barber_id]" style="display: block;" value="false">
+            <input id="pick-barber" type="integer" name="appointment[barber_id]" style="display: block;" value="">
             <input id="userID" type="integer" name="appointment[user_id]">
 
             <input type="submit" value="Book Appointment">
         </fieldset>
       </form>
 
+      <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <!--barber list will be here
+          If barber selected, there barber id will equal the barbers id
+          -->
+        </div>
+      </div>
+      </div>
 
+      <div id="view-appt" style="display: none">
+       
+           <legend>My Appointments</legend>
+         
+       
+            <button type="submit">Show</button> </div>
+            <ul class="appt-list">
+              </ul>
+
+              <button id="edit" style="display: none;">Edit</button>
+        <form id="edit-appt" style="display: none;">
+        <fieldset>
+              <legend>Edit Appointment</legend>
+               <input type="text" name="appointment[haircut]" placeholder="Haircut style">
+               <input type="text" name="appointment[date]" placeholder="Date">
+              <input type="integer" name="appointment[time]" placeholder="Time">
+              <input type="submit" value="Done">
+        </fieldset>
+      </form>
+
+    </div>
         <!--
           Add function that appends all barbers to the drop down list below. 
           Add functionality that appends the barberid affiliated with the name to the form.   
         -->
-        <div class="dropdown">
-          <button class="dropbtn">Dropdown</button>
-          <div class="dropdown-content">
-            <!--barber list will be here
-            If barber selected, there barber id will equal the barbers id
-            -->
-          </div>
-        </div>
+        
 
        
         <!--Automatically append the user id to the user id field-->
         
 
 
-
+        <div id="client-view-appt" style="display: none">
+       
+            <legend>My Appointments</legend>
+          
+        
+             <button type="submit">Show</button> </div>
+             <ul class="appt-list">
+               </ul>
+ 
+               <button id="client-edit" style="display: none;">Edit</button>
+         <form id="client-edit-appt" style="display: none;">
+         <fieldset>
+               <legend>Edit Appointment</legend>
+                <input type="text" name="appointment[haircut]" placeholder="Haircut style">
+                <input type="text" name="appointment[date]" placeholder="Date">
+               <input type="integer" name="appointment[time]" placeholder="Time">
+               <input type="submit" value="Done">
+         </fieldset>
+       </form>
+ 
+     </div>
 
         
 

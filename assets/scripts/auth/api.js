@@ -89,6 +89,31 @@ const createAppt = function (data) {
   })
 }
 
+const viewBarbersAppt = function (data) {
+  console.log('Appointment information is: ', data)
+  return $.ajax({
+    url: config.apiUrl + '/appointments',
+    method: 'GET',
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // },
+    data
+
+  })
+}
+
+const editAppt = function (data) {
+  console.log('Appointment information is: ', data)
+  return $.ajax({
+    url: config.apiUrl + '/appointments/' + data.id + '/edit',
+    method: 'PATCH',
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // },
+    data
+
+  })
+}
 
 
 module.exports = {
@@ -99,5 +124,7 @@ module.exports = {
     createBarber,
     getBarber,
     getAllBarbers,
-    createAppt
+    createAppt,
+    viewBarbersAppt,
+    editAppt
 }
