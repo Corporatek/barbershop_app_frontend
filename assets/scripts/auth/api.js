@@ -105,7 +105,7 @@ const viewBarbersAppt = function (data) {
 const editAppt = function (data) {
   console.log('Appointment information is: ', data)
   return $.ajax({
-    url: config.apiUrl + '/appointments/' + data.id + '/edit',
+    url: config.apiUrl + '/appointments/' + data.appointment.id + '/edit',
     method: 'PATCH',
     // headers: {
     //   Authorization: 'Token token=' + store.user.token

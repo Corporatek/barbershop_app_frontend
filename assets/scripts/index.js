@@ -26,6 +26,12 @@ $('#barber-btn').on('click', function() {
   barberType.val('true')}
   )
 
+// var thisApptId = document.getElementByID('apptID').val
+
+
+
+// console.log(thisApptId)
+
 
 
 $('#barber-btn').on('click', function(){
@@ -37,10 +43,7 @@ $('#barber-btn').on('click', function(){
     $('#create-barber').css('display', 'block')
     $('#barber-db').css('display', 'block')
     $('#view-appt').css('display', 'block')
-    $('#edit').css('display', 'block')
-    $('#edit').on('click', function(){
-      $('#edit-appt').css('display', 'block')
-    })
+   // $('li button#edit').css('display', 'block')
   })
 })
 
@@ -53,7 +56,7 @@ $('#client-btn').on('click', function(){
     $('#user-db').css('display', 'block')
     $('#view-appt').css('display', 'block')
     $('#client-edit').css('display', 'block')
-    $('create-appt').css('display', 'block')
+    $('#create-appt').css('display', 'block')
     $('#client-edit').on('click', function(){
       $('#client-edit-appt').css('display', 'block')
     })
@@ -68,12 +71,17 @@ $('#client-btn').on('click', function(){
 // })
 
 
-const appt = document.getElementsByClassName('barber-appt')
+const appt = document.getElementsByClassName('.barber-appts')
 
-console.log(appt.val)
+console.log(appt.value)
 
 
 
 console.log("sfas")
+
+
+myFunction()
+
+
 })
 

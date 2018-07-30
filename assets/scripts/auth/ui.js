@@ -146,7 +146,7 @@ const viewApptSuccess = function (data) {
   const myBarber = store.user.barber.id
   // var  = true
 
-const listBarbers = function(data) {
+  const listBarbers = function(data) {
   // if (barber_id == myBarber) {
   
     for (let i = 0; i < data.length; i++) {
@@ -157,21 +157,44 @@ const listBarbers = function(data) {
     let style = data[i].haircut
     let barber_id = data[i].barber_id
     let appt_id = data[i].id
-    
+
+   
+
     if (barber_id == myBarber) {
-    list.append('<li class="barber-appts" value='+appt_id+'>' + JSON.stringify(name) + ' ' +
+    list.append('<li class="barber-appts" id="appt-' + appt_id + '" value="'+appt_id+'" "onclick="'+myFunction(this)+'">' + JSON.stringify(appt_id) + ' ' +
+    JSON.stringify(name) + ' ' +
     JSON.stringify(style) + ' '
     + JSON.stringify(date) + ' '
     + JSON.stringify(time) + ' ' +
-    '</li>')}
+    '</li><button id="edit">EDIT</button><button>Delete</button>')
+
+    $('#edit').on('click', function(){
+      $('#edit-appt').css('display', 'block')
+      $('#apptID').val(appt_id)
+    })
+
+    
+
+
 
     }
+
+    
+    // If appointment is selected return its ID to the ID input box on the edit html element.
+    
+  
     console.log("i worked")
 
-  
-}
+    }
+    
+  }
   listBarbers(appt)
 }
+  
+      
+
+    
+
 const viewclientApptSuccess = function (data) {
   console.log("successfully showing all your appts: " + JSON.stringify(data.appointments))
   
@@ -200,11 +223,19 @@ const listBarbers = function(data) {
     JSON.stringify(style) + ' '
     + JSON.stringify(date) + ' '
     + JSON.stringify(time) + ' ' +
-    '</li>')}
+    '</li>')
+  
+    $('#edit').on('click', function(){
+      $('#edit-appt').css('display', 'block')
+    })
+  }
 
     }
     console.log("i worked")
-
+    $('#appt-' + appt_id).on('click', function() {
+      // $('#appt-'+appt_id).css('background', 'yellow')
+      $('appID').val(appt_id)
+    })
   
 }
   listBarbers(appt)
