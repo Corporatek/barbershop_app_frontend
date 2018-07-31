@@ -4,6 +4,7 @@ const store = require('../store.js')
 const api = require('./api')
 
 
+
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', 'green')
@@ -166,11 +167,37 @@ const viewApptSuccess = function (data) {
     JSON.stringify(style) + ' '
     + JSON.stringify(date) + ' '
     + JSON.stringify(time) + ' ' +
-    '</li><button id="edit">EDIT</button><button>Delete</button>')
+    '</li><button id="edit">EDIT</button><button id="delete">Delete</button>')
+
+    // const html = `
+    // <li class="barber-appts" id="appt-' + appt_id + '" value="'+appt_id+'" "onclick="'+myFunction(this)+'">' + JSON.stringify(appt_id) + ' ' +
+    // JSON.stringify(name) + ' ' +
+    // JSON.stringify(style) + ' '
+    // + JSON.stringify(date) + ' '
+    // + JSON.stringify(time) + ' ' +
+    // '</li><button id="edit">EDIT</button><button id="delete">Delete</button>
+    // `
+
+    // list.append(html)
+    
 
     $('#edit').on('click', function(){
       $('#edit-appt').css('display', 'block')
       $('#apptID').val(appt_id)
+    })
+
+ 
+
+    $('#delete').on('click', function (event) {
+      $('#apptDelete').val(appt_id)
+      event.preventDefault()
+
+      // onDeleteAppt(event)
+      // const data = getFormFields(this)
+      api.deleteAppt(appt_id)
+      .then(deleteSuccess)
+      .catch(deleteFail)
+      console.log("WORKED inside delete on click")
     })
 
     
@@ -257,6 +284,13 @@ const editApptFail = function (error) {
   console.log("failed to edit appointment")
 }
 
+const deleteSuccess = function (data) {
+  console.log("successfully deleted appointment")
+  }
+
+const deleteFail = function (error) {
+  console.log("failed to delete appointment")
+}
 
 
 module.exports = {
@@ -280,5 +314,6 @@ module.exports = {
     viewApptFail,
     editApptSucces,
     editApptFail,
-    viewclientApptSuccess
+    deleteSuccess,
+    deleteFail
   }

@@ -109,7 +109,7 @@ const editAppt = function (event) {
   const data = getFormFields(this)
   console.log(data)
     api.editAppt(data)
-    .then(ui.editApptSuccess)
+    .then(ui.editApptSucces)
     .catch(ui.editApptFail)
 }
 
@@ -124,6 +124,16 @@ const clientViewAppt = function (event) {
     .catch(ui.viewApptFail)
 }
 
+const onDeleteAppt = function (event) {
+  event.preventDefault()
+ 
+
+  const data = getFormFields(this)
+  console.log(data)
+    api.deleteAppt(data)
+    .then(ui.deleteSuccess)
+    .catch(ui.deleteFail)
+}
 
 const addHandlers = () => {
     $('#sign-up').on('submit', onSignUp)
@@ -137,6 +147,9 @@ const addHandlers = () => {
     $('#view-appt').on('click', viewAppt)
     $('#edit-appt').on('click', editAppt)    
     $('#client-view-appt').on('click', clientViewAppt)
+    
+
+    
     //$('#barber_bar').css('display', 'block', 3000)
 
 
@@ -146,3 +159,7 @@ module.exports = {
     addHandlers
   
   }
+
+  // keeping below here for now
+
+ 

@@ -115,6 +115,16 @@ const editAppt = function (data) {
   })
 }
 
+const deleteAppt = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/appointments/' + data,
+    method: 'DELETE',
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // }
+  })
+}
 
 module.exports = {
     signup,
@@ -126,5 +136,6 @@ module.exports = {
     getAllBarbers,
     createAppt,
     viewBarbersAppt,
-    editAppt
+    editAppt,
+    deleteAppt
 }
