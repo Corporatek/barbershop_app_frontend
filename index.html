@@ -17,16 +17,20 @@
       
       <!--NAVBAR-->
       <ul id="nav">
-          <li id="nav"><a onclick="window.location.reload()">Home</a></li>
-          <li id="nav"><a id="change-pwd">Change Password</a></li>
-          <li id="nav"><a id="sign-out-box">Sign Out</a></li>
+          <button class="nav" onclick="window.location.reload()">Home</button>
+          <button class="nav" id="change-pwd" style="display: none;">Change Password</button>
+          <button class="nav" id="sign-out-box" style="display: none;">Sign Out</button>
         </ul>
 
       <!--SIGNUP FORM-->
       <!--- Sign in info starts here -->
 
     <!--<img id="barber_bar" src="./assets/styles/barbershop_pole.gif"> -->
-
+<div>
+<h1><img style="height: 50px;" src="/assets/styles/barbershop_pole.gif">
+<b>Barbershop App</b>
+<img style="height: 50px;" src="/assets/styles/barbershop_pole.gif"></h1>
+</div>
     <div class="user-type" id="user-type">
       <button id="client-btn">Client</button>
       <button id="barber-btn">Barber</button>
@@ -38,13 +42,12 @@
       <form id="sign-up" class="signup" style="display: none;">
           <fieldset>
             <legend>Sign up!</legend>
-            <input id="suun" type="text" name="credentials[email]" placeholder="Email">
-            <input id="" type="password" name="credentials[password]" placeholder="Password">
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
             <input type="password" name="credentials[password_confirmation]" placeholder="Password_confirmation">
-            
             <input type="text" name="credentials[phone_number]" placeholder="Phone_number">
 
-            <input id="user-barber" type="text" name="credentials[barber]" style="display: none;" value="false">
+            <input id="user-barber" type="text/json" name="credentials[barber]" style="display: block;" value="false">
             <!-- be sure to change 'display: none;' of the above element-->
             <input type="submit" value="Sign Up!">
 

@@ -56,6 +56,8 @@ $('#barber-btn').on('click', function(){
 
 // CLIENT LOG IN
 $('#client-btn').on('click', function(){
+  $('input#email').val("")
+  $('input#password').val("")
   $('#user-type').css('display', 'none')
   $('#sign-up-client').css('display', 'block')
   $('#sign-up').css('display', 'none')

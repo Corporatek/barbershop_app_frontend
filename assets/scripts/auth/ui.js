@@ -25,6 +25,8 @@ const signInSuccess = function (data) {
   $('#sign-up').css('display', 'none')
   $('#sign-in').css('display', 'none')
   $('#sign-up-client').css('display', 'none')
+  $('.nav#change-pwd').css('display', 'block')
+  $('.nav#sign-out-box').css('display', 'block')  
 
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
@@ -69,6 +71,11 @@ const signOutSuccess = function () {
   $('#barber-info').css('display', 'none')
   $('#barber-db').css('display', 'none')
   $('#client-edit-appt').css('display', 'none')
+  $('.nav#change-pwd').css('display', 'none')
+  $('.nav#sign-out-box').css('display', 'none')
+  $('#create-barber').css('display', 'none')
+
+
 
 
   // make all inputs clear with the following jquery funcion:

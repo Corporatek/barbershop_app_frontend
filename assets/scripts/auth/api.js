@@ -59,10 +59,13 @@ const createBarber = function (data) {
 }
 
 const getBarber = function (data) {
-  console.log('my barber information is: ', store.user.barber)
+  console.log('my barber information is: ', data)
   return $.ajax({
-    url: config.apiUrl + '/barbers/' + store.user.barber.id,
+    url: config.apiUrl + '/barbers/' + data.barber.id,
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data
   })
 }
