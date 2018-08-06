@@ -23,7 +23,10 @@ As a barber, I can view all of my haircut appointments
 As a barber, I can view all of the barbershops haircut appointments (This is useful if there is a walk-in client and you want to see if any other barber has openings)
 
 
-*Wireframes and ERD's were created in a note book. Will upload asap
+*Wireframes and ERD's were created in a note book. Links to the images are below:
+
+wireframe: https://imgur.com/a/8mQCPuu
+ERD: https://imgur.com/a/FChjEKf
 
 ## [License](LICENSE)
 
