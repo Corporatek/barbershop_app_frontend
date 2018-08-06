@@ -119,21 +119,21 @@ const clientViewAppt = function (event) {
 
   const data = getFormFields(this)
   console.log(data)
-    api.editAppt(data)
+    api.viewClientAppt(data)
     .then(ui.viewclientApptSuccess)
     .catch(ui.viewApptFail)
 }
 
-const onDeleteAppt = function (event) {
-  event.preventDefault()
+// const onDeleteAppt = function (event) {
+//   event.preventDefault()
  
 
-  const data = getFormFields(this)
-  console.log(data)
-    api.deleteAppt(data)
-    .then(ui.deleteSuccess)
-    .catch(ui.deleteFail)
-}
+//   const data = getFormFields(this)
+//   console.log(data)
+//     api.deleteAppt(data)
+//     .then(ui.deleteSuccess)
+//     .catch(ui.deleteFail)
+// }
 
 const addHandlers = () => {
     $('#sign-up').on('submit', onSignUp)
@@ -145,14 +145,17 @@ const addHandlers = () => {
     $('.dropbtn').on('click', getAllBarbers)
     $('#create-appt').on('submit', newAppt)
     $('#view-appt').on('click', viewAppt)
-    $('#edit-appt').on('click', editAppt)    
-    $('#client-view-appt').on('click', clientViewAppt)
+    $('#client-edit-appt').on('submit', editAppt) 
+    $('#edit-appt').on('submit', editAppt) 
+    $('.client-view-appt').on('click', clientViewAppt)
+    $('#sign-out-box').on('click', onSignOut)
+    $('#change-pwd').on('click', function () {
+      $('#change-password').css('display', 'block')
+    })
+    $('#change-password').on('click', onChangePassword)
     
-
-    
-    //$('#barber_bar').css('display', 'block', 3000)
-
-
+  
+   //$('#barber_bar').css('display', 'block', 3000
 }
 
 module.exports = {

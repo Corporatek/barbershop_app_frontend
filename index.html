@@ -16,16 +16,16 @@
     <body>
       
       <!--NAVBAR-->
-      <ul>
-          <li><a href="default.asp">Home</a></li>
-          <li><a id="change-pwd">Change Password</a></li>
-          <li><a id="sign-out-box">Sign Out</a></li>
+      <ul id="nav">
+          <li id="nav"><a onclick="window.location.reload()">Home</a></li>
+          <li id="nav"><a id="change-pwd">Change Password</a></li>
+          <li id="nav"><a id="sign-out-box">Sign Out</a></li>
         </ul>
 
       <!--SIGNUP FORM-->
       <!--- Sign in info starts here -->
 
-    <img id="barber_bar" src="./assets/styles/barbershop_pole.gif">
+    <!--<img id="barber_bar" src="./assets/styles/barbershop_pole.gif"> -->
 
     <div class="user-type" id="user-type">
       <button id="client-btn">Client</button>
@@ -38,8 +38,8 @@
       <form id="sign-up" class="signup" style="display: none;">
           <fieldset>
             <legend>Sign up!</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Password">
+            <input id="suun" type="text" name="credentials[email]" placeholder="Email">
+            <input id="" type="password" name="credentials[password]" placeholder="Password">
             <input type="password" name="credentials[password_confirmation]" placeholder="Password_confirmation">
             
             <input type="text" name="credentials[phone_number]" placeholder="Phone_number">
@@ -70,8 +70,8 @@
         <form id="sign-in" class="border" style="display: none;">
           <fieldset>
             <legend>Sign in!</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Password">
+            <input id="email" type="text" name="credentials[email]" placeholder="Email">
+            <input id="password" type="password" name="credentials[password]" placeholder="Password">
             <input type="submit" value="Sign in!">
           </fieldset>
         </form>
@@ -132,7 +132,7 @@
         -->
 
 
-        <button type="submit" id="get-barber">Appointments</button>
+        <!--<button type="submit" id="get-barber">Appointments</button>-->
 
         <form id="create-appt">
         <fieldset>
@@ -148,7 +148,7 @@
       </form>
 
       <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
+        <button class="dropbtn">Pick Barber</button>
         <div class="dropdown-content">
           <!--barber list will be here
           If barber selected, there barber id will equal the barbers id
@@ -162,7 +162,8 @@
            <legend>My Appointments</legend>
          
        
-            <button type="submit">Show</button> </div>
+            <button type="submit">Show</button> 
+      </div>
             <ul class="appt-list">
               </ul>
 <!-- Add code: if UL item is clicked change the id to that of the clicked element.-->
@@ -173,7 +174,7 @@
                <input type="text" name="appointment[haircut]" placeholder="Haircut style">
                <input type="text" name="appointment[date]" placeholder="Date">
               <input type="integer" name="appointment[time]" placeholder="Time">
-              <input id="apptID" type="integer" name="appointment[id]" placeholder="id" value="">
+              <input class="apptID" type="integer" name="appointment[id]" placeholder="id" value="">
               <input type="submit" value="Done">
         </fieldset>
       </form>
@@ -185,7 +186,7 @@
         -->
         <div>
           <form id="delete-appt">
-              <input id="apptDelete" type="integer" name="appointment[id]" placeholder="id" value="">
+              <input style="display: none;" id="apptDelete" type="integer" name="appointment[id]" placeholder="id" value="">
           </form>
         </div>
 
@@ -194,14 +195,16 @@
         
 
 
-        <div id="client-view-appt" style="display: none">
+        <div id="client-view" style="display: none">
        
             <legend>My Appointments</legend>
           
         
-             <button type="submit">Show</button> </div>
-             <ul class="appt-list">
-               </ul>
+             <button class="client-view-appt">Show</button> 
+             <ul class="cl-appt-list">
+            </ul>
+            </div>
+             
  
                <!--<button id="client-edit" style="display: none;">Edit</button>-->
          <form id="client-edit-appt" style="display: none;">
@@ -210,6 +213,8 @@
                 <input type="text" name="appointment[haircut]" placeholder="Haircut style">
                 <input type="text" name="appointment[date]" placeholder="Date">
                <input type="integer" name="appointment[time]" placeholder="Time">
+               <input class="apptID" style="display: none;" type="integer" name="appointment[id]" placeholder="id" value="">
+
                <input type="submit" value="Done">
          </fieldset>
        </form>
@@ -218,16 +223,16 @@
 
         
 <script>
-var myVar;
+// var myVar;
 
-function myFunction() {
-    myVar = setTimeout(showPage, 3000);
-}
+// function myFunction() {
+//     myVar = setTimeout(showPage, 3000);
+// }
 
-function showPage() {
-  document.getElementById("barber_bar").style.display = "none";
-  document.getElementById("user-type").style.display = "block";
-}
+// function showPage() {
+//   document.getElementById("barber_bar").style.display = "none";
+//   document.getElementById("user-type").style.display = "block";
+// }
   </script>
 
 

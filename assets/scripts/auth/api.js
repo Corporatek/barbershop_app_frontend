@@ -102,6 +102,19 @@ const viewBarbersAppt = function (data) {
   })
 }
 
+const viewClientAppt = function (data) {
+  console.log('Appointment information is: ', data)
+  return $.ajax({
+    url: config.apiUrl + '/appointments',
+    method: 'GET',
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // },
+    data
+
+  })
+}
+
 const editAppt = function (data) {
   console.log('Appointment information is: ', data)
   return $.ajax({
@@ -120,9 +133,9 @@ const deleteAppt = function (data) {
   return $.ajax({
     url: config.apiUrl + '/appointments/' + data,
     method: 'DELETE',
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // }
+     headers: {
+       Authorization: 'Token token=' + store.user.token
+     }
   })
 }
 
@@ -137,5 +150,6 @@ module.exports = {
     createAppt,
     viewBarbersAppt,
     editAppt,
-    deleteAppt
+    deleteAppt,
+    viewClientAppt
 }
