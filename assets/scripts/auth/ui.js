@@ -28,6 +28,11 @@ const signInSuccess = function (data) {
   $('.nav#change-pwd').css('display', 'block')
   $('.nav#sign-out-box').css('display', 'block')  
 
+  let userID = $('.user_barb_id')
+  userID.val(data.user.id)
+    
+
+
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 //   var x = document.getElementById("game");
@@ -74,6 +79,8 @@ const signOutSuccess = function () {
   $('.nav#change-pwd').css('display', 'none')
   $('.nav#sign-out-box').css('display', 'none')
   $('#create-barber').css('display', 'none')
+  $('#view-appt').css('display', 'none')
+
 
 
 
@@ -94,6 +101,9 @@ const signOutFailure = function (error) {
 const createBarberSuccess = function (data) {
   console.log("successfully created a new barber")
   store.barber
+    
+    
+
   $('#create-barber').css('display', 'none')
   $('#message').css('display', 'block')
   $('#message').text('Barber successfully created!').fadeOut(2000)

@@ -47,7 +47,7 @@
             <input type="password" name="credentials[password_confirmation]" placeholder="Password_confirmation">
             <input type="text" name="credentials[phone_number]" placeholder="Phone_number">
 
-            <input id="user-barber" type="text/json" name="credentials[barber]" style="display: block;" value="false">
+            <input id="user-barber" type="application/json" name="credentials[is_barber]" value="false">
             <!-- be sure to change 'display: none;' of the above element-->
             <input type="submit" value="Sign Up!">
 
@@ -103,6 +103,8 @@
           <legend>Barber Information </legend>
             <input type="application/json" name="barber[name]" placeholder="Your name">
             <input type="application/json" name="barber[chair]" placeholder="Chair Number">
+            <input class="user_barb_id" type="application/json" name="barber[user_id]" placeholder="">
+
 
 
             <input type="submit" value="Done">
