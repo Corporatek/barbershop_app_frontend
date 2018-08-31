@@ -30,6 +30,12 @@ const signInSuccess = function (data) {
 
   let userID = $('.user_barb_id')
   userID.val(data.user.id)
+
+  if (data.user.barber != null) {
+    $('form#create-barber.border').css('display', 'none')
+    $('div#user-db').css('display', 'none')
+  }
+
     
 
 
@@ -80,6 +86,8 @@ const signOutSuccess = function () {
   $('.nav#sign-out-box').css('display', 'none')
   $('#create-barber').css('display', 'none')
   $('#view-appt').css('display', 'none')
+  $('form#create-barber.border').css('display', 'none')
+  $('div#user-db').css('display', 'none')
 
 
 
@@ -119,8 +127,8 @@ const getBarberSuccess = function (data) {
   console.log("successfully retrieved barber")
   const showBarber = data
 
-  var name = JSON.stringify(data.barber.name)
-  var chair = JSON.stringify(data.barber.chair)
+  var name = JSON.stringify(store.user.barber.name)
+  var chair = JSON.stringify(store.user.barber.chair)
 
   document.getElementById('barber-info').innerHTML = "Name: " + name + "  |  " + "Chair #: " + chair
 
