@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
+      <script src="./index.js"></script>
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      
+      <!--NAVBAR-->
+      <ul id="nav">
+          <button class="nav" onclick="window.location.reload()">Home</button>
+          <button class="nav" id="change-pwd" style="display: none;">Change Password</button>
+          <button class="nav" id="sign-out-box" style="display: none;">Sign Out</button>
+        </ul>
+
+      <!--SIGNUP FORM-->
+      <!--- Sign in info starts here -->
+
+    <!--<img id="barber_bar" src="./assets/styles/barbershop_pole.gif"> -->
+<div>
+<h1><img style="height: 50px;" src="/assets/styles/barbershop_pole.gif">
+<b>Barbershop App</b>
+<img style="height: 50px;" src="/assets/styles/barbershop_pole.gif"></h1>
+</div>
+    <div class="user-type" id="user-type">
+      <button id="client-btn">Client</button>
+      <button id="barber-btn">Barber</button>
+      <!-- if barber is selected, change to json string titled "barber" to true-->
+    </div>
+
+    <div id="message"></div>
+
+      <form id="sign-up" class="signup" style="display: none;">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Password_confirmation">
+            <input type="text" name="credentials[phone_number]" placeholder="Phone_number">
+
+            <input id="user-barber" type="application/json" name="credentials[is_barber]" value="false">
+            <!-- be sure to change 'display: none;' of the above element-->
+            <input type="submit" value="Sign Up!">
+
+          </fieldset>
+        </form>
+
+        <form id="sign-up-client" class="signup" style="display: none;">
+            <fieldset>
+              <legend>Sign up!</legend>
+              <input class="cli" type="text" name="credentials[email]" placeholder="Email">
+              <input class="cli" type="password" name="credentials[password]" placeholder="Password">
+              <input class="cli" type="password" name="credentials[password_confirmation]" placeholder="Password_confirmation">
+              
+              <input class="cli" type="text" name="credentials[phone_number]" placeholder="Phone_number">
+                <!-- be sure to change 'display: none;' of the above element-->
+              <input type="submit" value="Sign Up!">
+  
+            </fieldset>
+          </form>
+  
+        <!--<button id="login">Sign In</button>-->
+  
+        <form id="sign-in" class="border" style="display: none;">
+          <fieldset>
+            <legend>Sign in!</legend>
+            <input id="email" type="text" name="credentials[email]" placeholder="Email">
+            <input id="password" type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Sign in!">
+          </fieldset>
+        </form>
+  
+        <form id="change-password" class="border" style="display: none;">
+          <fieldset>
+            <legend>Change Password!</legend>
+            <input type="password" name="passwords[old]" placeholder="old password">
+            <input type="password" name="passwords[new]" placeholder="new password">
+  
+            <input type="submit" value="Change Password">
+          </fieldset>
+        </form>
+  
+        <form id="sign-out" class="border" style="display: none;">
+          <fieldset>
+            <legend>Sign Out</legend>
+            <input type="submit" value="Sign Out">
+          </fieldset>
+        </form>
+  
+      <!--BARBER INFO FORM-->
+
+      <form id="create-barber" class="border" style="display: none;">
+        <fieldset>
+          <legend>Barber Information </legend>
+            <input type="application/json" name="barber[name]" placeholder="Your name">
+            <input type="application/json" name="barber[chair]" placeholder="Chair Number">
+            <input class="user_barb_id" type="application/json" name="barber[user_id]" placeholder="">
+            <input type="submit" value="Done">
+        </fieldset>
+
+      </form>
+
+      <div id="barber-db" style="display: none;">
+      <!-- <form id="barber-dashboard" class="border"> -->
+        <fieldset>
+          <legend>Barber Dashboard</legend>
+
+          <button type="submit" id="get-barber">My Information</button>
+
+        </fieldset>
+      </div>
+
+        <div id="barber-info"> </div>
+
+
+      <!--</form>-->
+      <div id="user-db" style="display: none;">
+        <!-- 
+          Right Here I need a list of all barbers to populate. 
+          Each name must be affiliated with a barber id.
+          Client must select a barber and enter the style of haricut, 
+          a date and time. When all of this is populated feel free 
+
+          
+        -->
+
+
+        <!--<button type="submit" id="get-barber">Appointments</button>-->
+
+        <form id="create-appt">
+        <fieldset>
+           <legend>Create Appointment</legend>
+            <input type="text" name="appointment[haircut]" placeholder="Haircut style">
+            <input type="text" name="appointment[date]" placeholder="Date">
+           <input type="integer" name="appointment[time]" placeholder="Time">
+            <input style="display: none;" id="pick-barber" type="integer" name="appointment[barber_id]" style="display: block;" value="">
+            <input style="display: none;"id="userID" type="integer" name="appointment[user_id]">
+
+            <input type="submit" value="Book Appointment">
+        </fieldset>
+      </form>
+
+      <div class="dropdown">
+        <button class="dropbtn">Pick Barber</button>
+        <div class="dropdown-content">
+          <!--barber list will be here
+          If barber selected, there barber id will equal the barbers id
+          -->
+        </div>
+      </div>
+      </div>
+
+      <div id="view-appt" style="display: none">
+       
+           <legend>My Appointments</legend>
+         
+       
+            <button type="submit">Show</button> 
+      </div>
+            <ul class="appt-list">
+              </ul>
+<!-- Add code: if UL item is clicked change the id to that of the clicked element.-->
+             <!-- <button id="edit" style="display: none;">Edit</button>-->
+        <form id="edit-appt" style="display: none;">
+        <fieldset>
+              <legend>Edit Appointment</legend>
+               <input type="text" name="appointment[haircut]" placeholder="Haircut style">
+               <input type="text" name="appointment[date]" placeholder="Date">
+              <input type="integer" name="appointment[time]" placeholder="Time">
+              <input class="apptID" type="integer" name="appointment[id]" placeholder="id" value="">
+              <input type="submit" value="Done">
+        </fieldset>
+      </form>
+
+    </div>
+        <!--
+          Add function that appends all barbers to the drop down list below. 
+          Add functionality that appends the barberid affiliated with the name to the form.   
+        -->
+        <div>
+          <form id="delete-appt">
+              <input style="display: none;" id="apptDelete" type="integer" name="appointment[id]" placeholder="id" value="">
+          </form>
+        </div>
+
+       
+        <!--Automatically append the user id to the user id field-->
+        
+
+
+        <div id="client-view" style="display: none">
+       
+            <legend>My Appointments</legend>
+          
+        
+             <button class="client-view-appt">Show</button> 
+             <ul class="cl-appt-list">
+            </ul>
+            </div>
+             
+ 
+               <!--<button id="client-edit" style="display: none;">Edit</button>-->
+         <form id="client-edit-appt" style="display: none;">
+         <fieldset>
+               <legend>Edit Appointment</legend>
+                <input type="text" name="appointment[haircut]" placeholder="Haircut style">
+                <input type="text" name="appointment[date]" placeholder="Date">
+               <input type="integer" name="appointment[time]" placeholder="Time">
+               <input class="apptID" style="display: none;" type="integer" name="appointment[id]" placeholder="id" value="">
+
+               <input type="submit" value="Done">
+         </fieldset>
+       </form>
+ 
+     </div>
+
+        
+<script>
+// var myVar;
+
+// function myFunction() {
+//     myVar = setTimeout(showPage, 3000);
+// }
+
+// function showPage() {
+//   document.getElementById("barber_bar").style.display = "none";
+//   document.getElementById("user-type").style.display = "block";
+// }
+  </script>
+
+
+      
+    </body>
+    <!--<script src="index.js"></script>-->
+    </html>
