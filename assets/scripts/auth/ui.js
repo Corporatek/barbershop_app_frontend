@@ -9,14 +9,17 @@ const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully').fadeOut(1500)
   $('#message').css('background-color', 'green').fadeOut(1500)
   $('#sign-up').css('display', 'none')
-  console.log('signUpSuccess ran. Data is :', data)
+  $('input#cli').val("")
+
+  // console.log('signUpSuccess ran. Data is :', data)
+  alert("New account created for " + data.user.email)
   
 }
 
 const signUpFailure = function (error) {
   $('#message').text('Error on sign')
   $('#message').css('background-color', 'red')
-  console.log('signUpFailure ran. Error is :', error)
+  // console.log('signUpFailure ran. Error is :', error)
 }
 
 const signInSuccess = function (data) {
@@ -26,20 +29,36 @@ const signInSuccess = function (data) {
   $('#sign-in').css('display', 'none')
   $('#sign-up-client').css('display', 'none')
   $('.nav#change-pwd').css('display', 'block')
-  $('.nav#sign-out-box').css('display', 'block')  
+  $('.nav#sign-out-box').css('display', 'block')
+  $('input.cli').val("")
+
+  console.log(data)
 
   let userID = $('.user_barb_id')
   userID.val(data.user.id)
 
-  if (data.user.barber != null) {
-    $('form#create-barber.border').css('display', 'none')
-    $('div#user-db').css('display', 'none')
+  // if (data.user.barber == null) {
+  //   $('form#create-barber.border').css('display', 'none')
+  //   $('div#user-db').css('display', 'block')
+  //   $('div#barber-db').css('display', 'none')
+  //   $('#client-view').css('display', 'block')
+  //   $('#view-appt').css('display', 'none')
+  //   $('.dropdown').css('display', 'block')
+
+  // }
+
+  if (data.user.barber !== null) {
+   $('#create-appt').css("display", "none")
+   $('.dropdown').css('display', 'none')
+   $('#create-barber').css("display", "none")
+
   }
 
+  if (data.credentials)
     
 
 
-  console.log('signInSuccess ran. Data is :', data)
+  alert('Welcome ' + data.user.email + " !" )
   store.user = data.user
 //   var x = document.getElementById("game");
 //   var y = document.getElementById("sign-in");
@@ -50,7 +69,7 @@ const signInSuccess = function (data) {
 const signInFailure = function (error) {
   $('#message').text('Error on sign in')
   $('#message').css('background-color', 'red')
-  console.log('signInFailure ran. Error is :', error)
+  //('signInFailure ran. Error is :', error)
 }
 
 const changePasswordSuccess = function () {
@@ -65,13 +84,13 @@ const changePasswordSuccess = function () {
 const changePasswordFailure = function (error) {
   $('#message').text('Error on change password')
   $('#message').css('background-color', 'red')
-  console.log('changePasswordFailure ran. Error is :', error)
+  alert('changePasswordFailure ran. Error is :', error)
 }
 
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', 'green')
-  console.log('signOutSuccess ran.')
+  alert('Successfully logged out.')
   $('#sign-out').css('display', 'none')
   $('#user-type').css('display', 'block')
   $('#view-appt').css('display', 'none')
@@ -88,6 +107,9 @@ const signOutSuccess = function () {
   $('#view-appt').css('display', 'none')
   $('form#create-barber.border').css('display', 'none')
   $('div#user-db').css('display', 'none')
+  $('.appt-list').css('display', 'none')
+
+  window.location.reload()
 
 
 
@@ -103,11 +125,12 @@ const signOutSuccess = function () {
 const signOutFailure = function (error) {
   $('#message').text('Error while signing out')
   $('#message').css('background-color', 'red')
-  console.log('signOutFailure ran. Error is :', error)
+  // console.log('signOutFailure ran. Error is :', error)
 }
 
 const createBarberSuccess = function (data) {
-  console.log("successfully created a new barber")
+  alert("successfully created a new barber")
+  // console.log(data)
   store.barber
     
     
@@ -120,11 +143,11 @@ const createBarberSuccess = function (data) {
 }
 
 const createBarberFail = function (error) {
-  console.log("failed to create a new barber")
+  //console.log("failed to create a new barber")
 }
 
 const getBarberSuccess = function (data) {
-  console.log("successfully retrieved barber")
+  // console.log("successfully retrieved barber")
   const showBarber = data
 
   var name = JSON.stringify(store.user.barber.name)
@@ -132,16 +155,16 @@ const getBarberSuccess = function (data) {
 
   document.getElementById('barber-info').innerHTML = "Name: " + name + "  |  " + "Chair #: " + chair
 
-  console.log(data)
+  // console.log(data)
 
 }
 
 const getBarberFail = function (error) {
-  console.log("failed to get barber")
+  // console.log("failed to get barber")
 }
 
 const getAllBarbersSuccess = function (data) {
-console.log("successfully showing all barbers: " + JSON.stringify(data.barbers))
+// console.log("successfully showing all barbers: " + JSON.stringify(data.barbers))
   
   const person = data.barbers
   const list = $('.dropdown-content')
@@ -174,13 +197,13 @@ const listBarbers = function(data) {
 }
 
 const getAllBarbersFail = function (error) {
-  console.log("failed to create a new barber")
+  // console.log("failed to create a new barber")
 }
 
 const appointmentCreated = function (data) {
-  console.log("successfully created an appointment")
-  console.log(store.appointment)
-  console.log(data.appointment)
+  // alert("successfully created an appointment")
+  // console.log(store.appointment)
+  // console.log(data.appointment)
   $('#message').css('display', 'block')
   $('#message').text('Appointment booked!').fadeOut(2000)
   $('#message').css('background-color', '#b0e0e6').fadeOut(2000)
@@ -190,14 +213,14 @@ const appointmentCreated = function (data) {
 }
 
 const appointmentFailure = function (error) {
-  console.log("failed to create a new appointment")
+  // console.log("failed to create a new appointment")
   $('#message').css('display', 'block')
   $('#message').text('There was an error!').fadeOut(2000)
   $('#message').css('background-color', '#red').fadeOut(2000)
 }
 
 const viewApptSuccess = function (data) {
-  console.log("successfully showing all your appts: " + JSON.stringify(data.appointments))
+  //console.log("successfully showing all your appts: " + JSON.stringify(data.appointments))
   
   const appt = data.appointments
   const list = $('.appt-list')
@@ -258,7 +281,7 @@ const viewApptSuccess = function (data) {
       api.deleteAppt(appt_id)
       .then(deleteSuccess)
       .catch(deleteFail)
-      console.log("WORKED inside delete on click")
+     //  console.log("WORKED inside delete on click")
     })
 
     
@@ -271,7 +294,7 @@ const viewApptSuccess = function (data) {
     // If appointment is selected return its ID to the ID input box on the edit html element.
     
   
-    console.log("i worked")
+    // console.log("i worked")
 
     }
     
@@ -284,7 +307,7 @@ const viewApptSuccess = function (data) {
     
 
 const viewclientApptSuccess = function (data) {
-  console.log("successfully showing all your appts: " + JSON.stringify(data.appointments))
+  // console.log("successfully showing all your appts: " + JSON.stringify(data.appointments))
   
   const appt = data.appointments
   const list = $('.cl-appt-list')
@@ -320,7 +343,7 @@ const listBarbers = function(data) {
     $('#cli-edit').on('click', function(){
       $('#client-edit-appt').css('display', 'block')
       $('input.apptID').val(appt_id)
-      console.log(appt_id)
+      // console.log(appt_id)
     })
 
     $('.delete').on('click', function (event) {
@@ -332,12 +355,12 @@ const listBarbers = function(data) {
       api.deleteAppt(appt_id)
       .then(deleteSuccess)
       .catch(deleteFail)
-      console.log("WORKED inside delete on click")
+      // console.log("WORKED inside delete on click")
     })
   }
 
     }
-    console.log("i worked")
+    // console.log("i worked")
 
     
   
@@ -349,11 +372,11 @@ const listBarbers = function(data) {
 
 
 const viewApptFail = function (error) {
-  console.log("failed to view appointment")
+  // console.log("failed to view appointment")
 }
 
 const editApptSucces = function (data) {
-  console.log("successfully edited appointment")
+  alert("successfully edited appointment")
   $('#message').css('display', 'block')
   $('#message').text('Successfully edited appointment!').fadeOut(2500)
   $('#message').css('background-color', 'green').fadeOut(2500)
@@ -366,18 +389,18 @@ const editApptSucces = function (data) {
   }
 
 const editApptFail = function (error) {
-  console.log("failed to edit appointment")
+  // console.log("failed to edit appointment")
 }
 
 const deleteSuccess = function (data) {
-  console.log("successfully deleted appointment")
+  alert("successfully deleted appointment")
   $('#message').css('display', 'block')
   $('#message').text('Successfully deleted appointment').fadeOut(2500)
   $('#message').css('background-color', 'green').fadeOut(2500)
   }
 
 const deleteFail = function (error) {
-  console.log("failed to delete appointment")
+  //console.log("failed to delete appointment")
 }
 
 

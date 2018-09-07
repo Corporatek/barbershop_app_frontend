@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 const main = require('../index')
 
-console.log("made it to api")
+// console.log("made it to api")
 
 const signup = function (data) {
   return $.ajax({
@@ -24,7 +24,7 @@ const signin = function (data) {
 }
 
 const changePassword = function (data) {
-  console.log('date is ', data)
+  // console.log('date is ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -46,7 +46,7 @@ const signout = function (data) {
 }
 
 const createBarber = function (data) {
-  console.log('barber information is ', data)
+  // console.log('barber information is ', data)
   // console.log('store data: ', store.user.barber.name)
   return $.ajax({
     url: config.apiUrl + '/barber',
@@ -60,8 +60,8 @@ const createBarber = function (data) {
 }
 
 const getBarber = function (data) {
-  console.log('my barber information is: ', store.user.barber)
-  console.log('store data: ', store.user.barber.id)
+  // console.log('my barber information is: ', store.user.barber)
+  // console.log('store data: ', store.user.barber.id)
 
   return $.ajax({
     url: config.apiUrl + '/barbers/' + store.user.barber.id,
@@ -74,8 +74,8 @@ const getBarber = function (data) {
 }
 
 const getAllBarbers = function (data) {
-  console.log('All barbers: ', data)
-  console.log(data.barber)
+  // console.log('All barbers: ', data)
+  // console.log(data.barber)
   return $.ajax({
     url: config.apiUrl + '/barbers',
     method: 'GET',
@@ -84,7 +84,7 @@ const getAllBarbers = function (data) {
 }
 
 const createAppt = function (data) {
-  console.log('Appointment information is: ', data)
+  // console.log('Appointment information is: ', data)
   return $.ajax({
     url: config.apiUrl + '/appointments',
     method: 'POST',
@@ -97,7 +97,7 @@ const createAppt = function (data) {
 }
 
 const viewBarbersAppt = function (data) {
-  console.log('Appointment information is: ', data)
+  // console.log('Appointment information is: ', data)
   return $.ajax({
     url: config.apiUrl + '/appointments',
     method: 'GET',
@@ -110,7 +110,7 @@ const viewBarbersAppt = function (data) {
 }
 
 const viewClientAppt = function (data) {
-  console.log('Appointment information is: ', data)
+  // console.log('Appointment information is: ', data)
   return $.ajax({
     url: config.apiUrl + '/appointments',
     method: 'GET',
@@ -123,7 +123,7 @@ const viewClientAppt = function (data) {
 }
 
 const editAppt = function (data) {
-  console.log('Appointment information is: ', data)
+  // console.log('Appointment information is: ', data)
   return $.ajax({
     url: config.apiUrl + '/appointments/' + data.appointment.id,
     method: 'PATCH',

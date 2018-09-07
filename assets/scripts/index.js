@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 // $('#barber-btn').onClick(barberType.val('true'))
 
-console.log("hi")
+// console.log("hi")
 authEvents.addHandlers()
 
 var barberType = $('#user-barber')
@@ -88,11 +88,11 @@ $('#client-btn').on('click', function(){
 
 const appt = document.getElementsByClassName('.barber-appts')
 
-console.log(appt.value)
+// console.log(appt.value)
 
 
 
-console.log("sfas")
+// console.log("sfas")
 
 
 

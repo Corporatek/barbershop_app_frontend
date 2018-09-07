@@ -3,13 +3,13 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-// const store = require('../store')
+const store = require('../store')
 
-console.log("events works")
+// console.log("events works")
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('sign up ran!')
+  // console.log('sign up ran!')
 
 
   const data = getFormFields(this)
@@ -20,7 +20,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('sign in ran!')
+  // console.log('sign in ran!')
 
 const data = getFormFields(this)
   api.signin(data)
@@ -61,17 +61,19 @@ const createBarber = function (event) {
 
 const getBarber = function (event) {
   event.preventDefault()
-  console.log("getting barber details")
+  // console.log("getting barber details")
+  alert("Barber: " + store.user.barber.name + " | " + "Chair #: " + store.user.barber.chair)
 
-  const data = getFormFields(this)
-    api.getBarber(data)
-    .then(ui.getBarberSuccess)
-    .catch(ui.getBarberFailure)
+
+  // const data = getFormFields(this)
+  //   api.getBarber(data)
+  //   .then(ui.getBarberSuccess)
+  //   .catch(ui.getBarberFailure)
 }
 
 const getAllBarbers = function (event) {
   event.preventDefault()
-  console.log("getting all barbers")
+  // console.log("getting all barbers")
 
   const data = getFormFields(this)
     api.getAllBarbers(data)
@@ -81,11 +83,11 @@ const getAllBarbers = function (event) {
 
 const newAppt = function (event) {
   event.preventDefault()
-  console.log("creating appointment...")
-  console.log(event)
+  // console.log("creating appointment...")
+  // console.log(event)
 
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
     api.createAppt(data)
     .then(ui.appointmentCreated)
     .catch(ui.appointmentFailed)
@@ -96,7 +98,7 @@ const viewAppt = function (event) {
  
 
   const data = getFormFields(this)
-  console.log(data)
+ // console.log(data)
     api.viewBarbersAppt(data)
     .then(ui.viewApptSuccess)
     .catch(ui.viewApptFail)
@@ -107,7 +109,7 @@ const editAppt = function (event) {
  
 
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
     api.editAppt(data)
     .then(ui.editApptSucces)
     .catch(ui.editApptFail)
@@ -118,7 +120,7 @@ const clientViewAppt = function (event) {
  
 
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
     api.viewClientAppt(data)
     .then(ui.viewclientApptSuccess)
     .catch(ui.viewApptFail)

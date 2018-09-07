@@ -1,28 +1,9 @@
 'use strict'
 
 const store = {
-}
-
-const credentials = {
-
-}
-
-const barber = {
-
-}
-
-const users = {
-
-}
-
-const appointments = {
-
+    "isbarber?": false
 }
 
 module.exports =  {
-    store,
-    credentials,
-    barber,
-    users,
-    appointments
+    store
 }
